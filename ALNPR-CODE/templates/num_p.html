@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANPR-LDETAILS-JNTM</title>
+
+  <style>
+    body {
+      background-image: url('bg1.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 150%;
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  {% if post %}
+  <h1><span style="color:red">DETAILS OF NUMBER PLATE</span></h1>
+
+  <table>
+
+    {% for record in post %}
+
+    <tr>
+      <td><b>Number Plate</b></td>
+      <td><span style="color:blue;font-size: 30px;"><b>{{ record.number_plate }}</b></span></td>
+    </tr>
+
+    <tr>
+      <td>Registration Name</td>
+      <td><span style="color:green"><b>{{ record.reg_name }}</b></span></td>
+    </tr>
+
+    <tr>
+      <td>License Number</td>
+      <td>{{ record.license_no }}</td>
+    </tr>
+
+    <tr>
+      <td>Model</td>
+      <td>{{ record.model }}</td>
+    </tr>
+
+    <tr>
+      <td>Registration Date</td>
+      <td>{{ record.reg_date }}</td>
+    </tr>
+
+    <tr>
+      <td>Registration Authority</td>
+      <td>{{ record.reg_authority }}</td>
+    </tr>
+
+    <tr>
+      <td>Vehicle Class</td>
+      <td>{{ record.vehicle_class }}</td>
+    </tr>
+
+    <tr>
+      <td>Fuel</td>
+      <td>{{ record.fuel }}</td>
+    </tr>
+
+    <tr>
+      <td>Engine Number</td>
+      <td>{{ record.engine_no }}</td>
+    </tr>
+
+    <tr>
+      <td>Chassis Number</td>
+      <td>{{ record.chassis_no }}</td>
+    </tr>
+
+    <tr>
+      <td>Insurance Expiry</td>
+      <td>{{ record.insurance_upto }}</td>
+    </tr>
+
+    <tr>
+      <td>Fitness Expiry</td>
+      <td>{{ record.fitness_upto }}</td>
+    </tr>
+
+    {% endfor %}
+
+  </table>
+
+  {% else %}
+  <h1><span style="color:red">DETAILS NOT FOUND</span></h1>
+  {% endif %}
+
+</body>
+
+</html>
